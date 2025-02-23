@@ -3,6 +3,13 @@ import { Link } from "expo-router";
 import React from "react";
 import FoodLogListItem from "../components/FoodLogListItem";
 
+const foodItems = [
+  { label: "Pizza", cal: 175, brand: "Dominos" },
+  { label: "Burger", cal: 115, brand: "McDonalds" },
+  { label: "Bowl", cal: 105, brand: "Chopotle" },
+  { label: "Coffee", cal: 55, brand: "Starbucks" },
+];
+
 const HomeScreen = () => {
   return (
     <View style={styles.container}>
@@ -16,11 +23,11 @@ const HomeScreen = () => {
           <Button title="ADD FOOD" />
         </Link>
       </View>
-      <FoodLogListItem item={{ label: "Pizza", cal: 175, brand: "Dominos" }} />
-      <FoodLogListItem
-        item={{ label: "Burger", cal: 115, brand: "McDonalds" }}
+      <FlatList
+        data={foodItems}
+        contentContainerStyle={{ gap: 5 }}
+        renderItem={({ item }) => <FoodLogListItem item={item} />}
       />
-      <FoodLogListItem item={{ label: "Bowl", cal: 105, brand: "Chopotle" }} />
     </View>
   );
 };

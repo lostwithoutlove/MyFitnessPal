@@ -9,16 +9,28 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import FoodListItem from "../components/FoodListItem";
+import { useState } from "react";
 
 export default function SearchScreen() {
-  //const items = [];
+  const [search, setSearch] = useState("");
+  const performSearch = () => {
+    console.warn("Search", search);
+    setSearch("");
+  };
+
+  const foodItems = [
+    { label: "Pizza", cal: 175, brand: "Dominos" },
+    { label: "Burger", cal: 115, brand: "McDonalds" },
+    { label: "Bowl", cal: 105, brand: "Chopotle" },
+    { label: "Coffee", cal: 55, brand: "Starbucks" },
+  ];
 
   return (
     <View style={styles.container}>
       <View style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
         <TextInput
-          value=""
-          onChangeText={() => {}}
+          value={search}
+          onChangeText={setSearch}
           placeholder="Search..."
           style={styles.input}
         />
@@ -28,10 +40,22 @@ export default function SearchScreen() {
           size={32}
           color="dimgray"
         />
+        {search && (
+          <Ionicons
+            onPress={performSearch}
+            name="search"
+            size={30}
+            color="royalblue"
+          />
+        )}
       </View>
-      <FoodListItem item={{ label: "Pizza", cal: 175, brand: "Dominos" }} />
-      <FoodListItem item={{ label: "Burger", cal: 115, brand: "McDonalds" }} />
-      <FoodListItem item={{ label: "Bowl", cal: 105, brand: "Chopotle" }} />
+
+      <FlatList
+        data={foodItems}
+        renderItem={({ item }) => <FoodListItem item={item} />}
+        ListEmptyComponent={() => <Text>Search a food</Text>}
+        contentContainerStyle={{ gap: 5 }}
+      />
     </View>
   );
 }
