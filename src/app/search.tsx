@@ -11,6 +11,8 @@ import { Ionicons } from "@expo/vector-icons";
 import FoodListItem from "../components/FoodListItem";
 
 export default function SearchScreen() {
+  //const items = [];
+
   return (
     <View style={styles.container}>
       <View style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
@@ -27,12 +29,9 @@ export default function SearchScreen() {
           color="dimgray"
         />
       </View>
-      <FlatList
-        data={[]}
-        renderItem={({ item }) => <FoodListItem />}
-        ListEmptyComponent={() => <Text>Search a food</Text>}
-        contentContainerStyle={{ gap: 5 }}
-      />
+      <FoodListItem item={{ label: "Pizza", cal: 175, brand: "Dominos" }} />
+      <FoodListItem item={{ label: "Burger", cal: 115, brand: "McDonalds" }} />
+      <FoodListItem item={{ label: "Bowl", cal: 105, brand: "Chopotle" }} />
     </View>
   );
 }

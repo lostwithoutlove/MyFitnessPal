@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, Button, FlatList } from "react-native";
 import { Link } from "expo-router";
 import React from "react";
+import FoodLogListItem from "../components/FoodLogListItem";
 
 const HomeScreen = () => {
   return (
@@ -15,11 +16,11 @@ const HomeScreen = () => {
           <Button title="ADD FOOD" />
         </Link>
       </View>
-      <FlatList
-        data={[]}
-        contentContainerStyle={{ gap: 5 }}
-        renderItem={({ item }) => <Text>Hi </Text>}
+      <FoodLogListItem item={{ label: "Pizza", cal: 175, brand: "Dominos" }} />
+      <FoodLogListItem
+        item={{ label: "Burger", cal: 115, brand: "McDonalds" }}
       />
+      <FoodLogListItem item={{ label: "Bowl", cal: 105, brand: "Chopotle" }} />
     </View>
   );
 };

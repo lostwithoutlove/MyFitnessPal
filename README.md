@@ -7,6 +7,8 @@ Stack - React Native, Expo
 1. npx create-expo-app@latest MyFitnessPal
 2. npx expo install expo-router react-native-safe-area-context react-native-screens expo-linking expo-constants expo-status-bar
 3. npx expo install react-native-web react-dom
+4. npx expo-doctor
+5. npx expo install --check
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 

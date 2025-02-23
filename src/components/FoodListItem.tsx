@@ -2,15 +2,13 @@ import { View, Text, StyleSheet } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 
-const FoodListItem = ({}) => {
+const FoodListItem = ({ item }) => {
   return (
     <View style={styles.container}>
       <View style={{ flex: 1, gap: 5 }}>
-        <Text style={{ fontWeight: "bold", fontSize: 16 }}>
-          Item.Food.Label
-        </Text>
+        <Text style={{ fontWeight: "bold", fontSize: 16 }}>{item.label}</Text>
         <Text style={{ color: "dimgray" }}>
-          item.food.nutrients.ENERC_KCAL cal, item.food.brand
+          {item.cal} cal, {item.brand}
         </Text>
       </View>
       <AntDesign
