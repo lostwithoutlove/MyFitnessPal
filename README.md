@@ -9,6 +9,7 @@ Stack - React Native, Expo
 3. npx expo install react-native-web react-dom
 4. npx expo-doctor
 5. npx expo install --check
+6. npm install -g stepzen
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
